@@ -4,14 +4,29 @@ import { Row, Col } from "react-bootstrap";
 import styles from "./ContriveBox.module.scss";
 
 export interface ContriveBoxProps {
+  title?: string;
+  subtitle?: string;
   roundedCorners?: boolean;
 }
 
-export const ContriveBox = (props: ContriveBoxProps) => {
+export const ContriveBox: React.FunctionComponent<ContriveBoxProps> = (
+  props
+) => {
   return (
     <Row className={styles.ContriveBoxContainer}>
-      <Col className={styles.ContriveBox} lg={12}>
-        da
+      <Col className={[styles.ContriveBox, "p-0"].join(" ")} lg={12}>
+        <Row className={styles.ContriveBoxHeaderContainer}>
+          <Col>
+            <h1>{props.title}</h1>
+            <p>{props.subtitle}</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col>{props.children}</Col>
+        </Row>
+        <Row className={styles.ContriveBoxFooterContainer}>
+          <Col>da</Col>
+        </Row>
       </Col>
     </Row>
   );
