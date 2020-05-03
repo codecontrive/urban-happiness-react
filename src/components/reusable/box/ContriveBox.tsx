@@ -21,12 +21,10 @@ export const ContriveBox: React.FunctionComponent<ContriveBoxProps> = (
             <p>{props.subtitle}</p>
           </Col>
         </Row>
-        <Row>
+        <Row className={styles.ContriveBoxContainer}>
           <Col>{props.children}</Col>
         </Row>
-        <Row className={styles.ContriveBoxFooterContainer}>
-          <Col>da</Col>
-        </Row>
+        <Row className={styles.ContriveBoxFooterContainer}></Row>
       </Col>
     </Row>
   );

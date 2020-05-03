@@ -7,10 +7,6 @@
   background-color: rgb(255, 255, 255);
 }
 
-.ContriveBoxFooterContainer {
-  background-color: $blue-1;
-}
-
 .ContriveBoxHeaderContainer {
   margin-top: 15px;
   padding-bottom: 15px;
@@ -25,4 +21,14 @@
     margin: 0;
     margin-top: 10px;
   }
+}
+
+.ContriveBoxContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.ContriveBoxFooterContainer {
+  background-color: $blue-1;
+  height: 50px;
 }
