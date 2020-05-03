@@ -1,6 +1,7 @@
 import React from "react";
 import { useTypedSelector } from "./store/reducers";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Auth } from "./components/auth/Auth";
 
 export const App = () => {
   const appConfig = useTypedSelector((state) => state.appConfig);
@@ -12,8 +13,8 @@ export const App = () => {
           <Route path="/home" exact>
             <h1>Home</h1>
           </Route>
-          <Route path="/test">
-            <h1>Test</h1>
+          <Route path="/auth">
+            <Auth />
           </Route>
           <Route>404</Route>
         </Switch>
