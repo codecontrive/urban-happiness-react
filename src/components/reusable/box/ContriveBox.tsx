@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Row, Col } from "react-bootstrap";
 
 import styles from "./ContriveBox.module.scss";
@@ -7,6 +7,7 @@ export interface ContriveBoxProps {
   title?: string;
   subtitle?: string;
   roundedCorners?: boolean;
+  footer?: ReactNode;
 }
 
 export const ContriveBox: React.FunctionComponent<ContriveBoxProps> = (
@@ -24,7 +25,7 @@ export const ContriveBox: React.FunctionComponent<ContriveBoxProps> = (
         <Row className={styles.ContriveBoxContainer}>
           <Col>{props.children}</Col>
         </Row>
-        <Row className={styles.ContriveBoxFooterContainer}></Row>
+        <Row className={styles.ContriveBoxFooterContainer}>{props.footer}</Row>
       </Col>
     </Row>
   );
