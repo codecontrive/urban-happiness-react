@@ -2,8 +2,11 @@ import React from "react";
 import { ContriveBox } from "../../reusable/box/ContriveBox";
 import { Form, Button } from "react-bootstrap";
 import { ContriveAlert } from "../../reusable/alert/ContriveAlert";
+import { useTypedSelector } from "../../../store/reducers";
 
 export const AuthBoxContainer = () => {
+  const auth = useTypedSelector((state) => state.auth);
+  console.log(auth);
   const onSubmit = () => {};
 
   return (
