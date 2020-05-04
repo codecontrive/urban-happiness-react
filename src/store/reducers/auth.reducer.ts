@@ -3,7 +3,10 @@ import { AuthTypes, AuthAction } from "../actions/action.types";
 import { User } from "../../models/User.interface";
 
 export const initialState: AuthState = {
-  status: { loggedIn: false, loading: false },
+  status: {
+    loggedIn: false,
+    loading: false,
+  },
 };
 
 export const authReducer = (

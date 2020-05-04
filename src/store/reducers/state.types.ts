@@ -4,10 +4,16 @@ export interface AppConfigState {
   test: string;
 }
 
+export interface AuthError extends Error {
+  title?: string;
+  body?: string;
+  footer?: string;
+}
+
 export interface AuthStatus {
   loading: boolean;
   loggedIn: boolean;
-  error?: Error;
+  error?: AuthError;
 }
 
 export interface AuthState {
