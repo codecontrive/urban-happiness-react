@@ -5,7 +5,6 @@ import { User } from "../../models/User.interface";
 export const initialState: AuthState = {
   status: {
     loggedIn: false,
-    loading: false,
   },
 };
 
@@ -19,13 +18,6 @@ export const authReducer = (
       return {
         ...state,
         status: payload,
-      };
-    }
-    case AuthAction.SET_STATUS_LOADING: {
-      const payload = action.payload as boolean;
-      return {
-        ...state,
-        status: { ...state.status, loading: payload },
       };
     }
     case AuthAction.SET_USER: {

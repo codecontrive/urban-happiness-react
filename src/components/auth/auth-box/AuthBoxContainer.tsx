@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ContriveBox } from "../../reusable/box/ContriveBox";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import { ContriveAlert } from "../../reusable/alert/ContriveAlert";
 import { useTypedSelector } from "../../../store/reducers";
+import { useLogin } from "../../../hooks/auth/useLogin";
 
 export const AuthBoxContainer = () => {
   const auth = useTypedSelector((state) => state.auth);
+  const { loginAttempt, requestStatus } = useLogin();
 
   const [email, setEmail] = useState("admin@admin.com");
   const [password, setPassword] = useState("adminadmin");
@@ -14,11 +16,17 @@ export const AuthBoxContainer = () => {
 
   useEffect(() => {
     setFormEnabled(
-      email.length > 0 && password.length > 0 && auth.status.loading === false
+      email.length > 0 && password.length > 0 && requestStatus.loading === false
     );
-  }, [email, password, auth.status.loading]);
+  }, [email, password, requestStatus.loading]);
 
-  const onSubmit = () => {};
+  useEffect(() => {
+    console.log("loading: ", requestStatus.loading);
+  }, [requestStatus.loading]);
+
+  const onSubmit = () => {
+    loginAttempt(email, password);
+  };
 
   return (
     <ContriveBox
@@ -33,6 +41,15 @@ export const AuthBoxContainer = () => {
           onClick={onSubmit}
         >
           Login
+          {requestStatus.loading && (
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+          )}
         </Button>
       }
     >
@@ -41,6 +58,7 @@ export const AuthBoxContainer = () => {
           <Form.Control
             type="email"
             placeholder="Enter email"
+            disabled={requestStatus.loading}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -53,6 +71,7 @@ export const AuthBoxContainer = () => {
           <Form.Control
             type="password"
             placeholder="Password"
+            disabled={requestStatus.loading}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

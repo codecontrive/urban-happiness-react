@@ -11,7 +11,6 @@ export interface AuthError extends Error {
 }
 
 export interface AuthStatus {
-  loading: boolean;
   loggedIn: boolean;
   error?: AuthError;
 }
