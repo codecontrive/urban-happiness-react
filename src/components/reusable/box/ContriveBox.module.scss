@@ -1,0 +1,33 @@
+@import "../../../assets/scss/variables.scss";
+
+.ContriveBoxContainer {
+}
+
+.ContriveBox {
+  background-color: rgb(255, 255, 255);
+}
+
+.ContriveBoxHeaderContainer {
+  margin-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(145, 145, 145, 0.274);
+
+  h1 {
+    font-size: 26px;
+    font-weight: 500;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+
+.ContriveBoxContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.ContriveBoxFooterContainer {
+  background-color: $blue-1;
+}

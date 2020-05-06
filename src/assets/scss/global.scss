@@ -1,6 +1,23 @@
 @import "./variables.scss";
 @import "./mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;500;600;700;800;900&display=swap");
 
 body {
   background-color: $background-color;
+  font-family: "Muli", sans-serif;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.backgroundWrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  @include backgroundWrapper();
 }
