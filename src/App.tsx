@@ -16,7 +16,7 @@ export const App = () => {
           </Route>
 
           <Route path="/" exact>
-            <h1>Home</h1>
+            <h1>Edited this from Windows. Testing git. Beer.</h1>
           </Route>
           <Route>404</Route>
         </Switch>
